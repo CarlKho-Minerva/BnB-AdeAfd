@@ -1,3 +1,4 @@
+// Spline API
 import { Application } from '@splinetool/runtime';
 const { onPlayerJoin, insertCoin, isHost, myPlayer } = Playroom;
 
@@ -33,11 +34,14 @@ class AnimationFrame {
   }
 }
 
+// Playroom - setup
 window._USETEMPSTORAGE = true;
 await insertCoin();
-await app.load('/demos/spline/scene.splinecode');
+await app.load('scene.splinecode');
 window.app = app;
-// Joystick connection
+
+
+// NippleJS - Joystick connection
 const joystick = nipplejs.create();
 joystick.on("move", (e, data) => {
   myPlayer().setState("dir", data.vector);
@@ -52,10 +56,11 @@ function getObjectFromSpline(name){
 };
 
 onPlayerJoin((state) => {
-  const ball = getObjectFromSpline("Ball" + (players.length+1));
+  const ball = getObjectFromSpline("Camera " + (players.length+1));
   players.push({state, ball});
 });
 
+// instantiate class AnimationFrame
 const loop = new AnimationFrame(120, () => {
   if (isHost()){
     for (const player of players) {
