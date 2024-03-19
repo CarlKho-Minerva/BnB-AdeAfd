@@ -37,7 +37,7 @@ class AnimationFrame {
 // Playroom - setup
 window._USETEMPSTORAGE = true;
 await insertCoin();
-await app.load('scene.splinecode');
+await app.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode');
 window.app = app;
 
 
