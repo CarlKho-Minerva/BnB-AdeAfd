@@ -56,8 +56,8 @@ function getObjectFromSpline(name){
 };
 
 onPlayerJoin((state) => {
-  const ball = getObjectFromSpline("Camera " + (players.length+1));
-  players.push({state, ball});
+  const camera = getObjectFromSpline("Camera " + (players.length+1)); // get a unique camera for each player
+  players.push({state, camera});
 });
 
 // instantiate class AnimationFrame
