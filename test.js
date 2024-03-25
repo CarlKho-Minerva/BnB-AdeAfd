@@ -14,3 +14,10 @@ spline
 		// move the object in 3D space
 		obj.position.x += 10;
 	});
+
+
+// Playroom - setup
+window._USETEMPSTORAGE = true;
+await insertCoin({gameId: "ozM2XgsHrfrKdzQme1DV"});
+await app.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode');
+window.app = app;
