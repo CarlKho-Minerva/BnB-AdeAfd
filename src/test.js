@@ -7,7 +7,6 @@ const spline = new Application(canvas);
 // Playroom - setup
 window._USETEMPSTORAGE = true;
 await insertCoin({gameId: "ozM2XgsHrfrKdzQme1DV"});
-await spline.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode');
 window.spline = spline;
 
 spline
