@@ -5,38 +5,38 @@ const { onPlayerJoin, insertCoin, isHost, myPlayer } = Playroom;
 const canvas = document.getElementById('canvas3d');
 const app = new Application(canvas);
 
-class AnimationFrame {
-  constructor(fps = 60, animate) {
-    this.requestID = 0;
-    this.fps = fps;
-    this.animate = animate;
-  }
+// class AnimationFrame {
+//   constructor(fps = 60, animate) {
+//     this.requestID = 0;
+//     this.fps = fps;
+//     this.animate = animate;
+//   }
 
-  start() {
-    let then = performance.now();
-    const interval = 1000 / this.fps;
-    const tolerance = 0.1;
+//   start() {
+//     let then = performance.now();
+//     const interval = 1000 / this.fps;
+//     const tolerance = 0.1;
 
-    const animateLoop = (now) => {
-      this.requestID = requestAnimationFrame(animateLoop);
-      const delta = now - then;
+//     const animateLoop = (now) => {
+//       this.requestID = requestAnimationFrame(animateLoop);
+//       const delta = now - then;
 
-      if (delta >= interval - tolerance) {
-        then = now - (delta % interval);
-        this.animate(delta);
-      }
-    };
-    this.requestID = requestAnimationFrame(animateLoop);
-  }
+//       if (delta >= interval - tolerance) {
+//         then = now - (delta % interval);
+//         this.animate(delta);
+//       }
+//     };
+//     this.requestID = requestAnimationFrame(animateLoop);
+//   }
 
-  stop() {
-    cancelAnimationFrame(this.requestID);
-  }
-}
+//   stop() {
+//     cancelAnimationFrame(this.requestID);
+//   }
+// }
 
 // Playroom - setup
 window._USETEMPSTORAGE = true;
-await insertCoin();
+await insertCoin({gameId: "ozM2XgsHrfrKdzQme1DV"});
 await app.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode');
 window.app = app;
 
