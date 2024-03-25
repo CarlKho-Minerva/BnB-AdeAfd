@@ -13,13 +13,10 @@ window.spline = spline;
 spline
 	.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode')
 	.then(() => {
-		const obj = spline.findObjectByName('ChesspawnPink');
-		// or
-		// const obj = spline.findObjectById('7AF5EBC0-09BB-4720-B045-F478F8053AA4');
-
-		console.log(obj); // Spline Object => { name: 'Cube', id: '7AF5EBC0-09BB-4720-B045-F478F8053AA4', position: {}, ... }
-
-		// move the object in 3D space
-		obj.position.x += 10;
+		spline.addEventListener('mouseDown', (e) => {
+			if (e.target.name === 'ChesspawnPink') {
+				console.log('I have been clicked!');
+			}
+		});
 	});
 
