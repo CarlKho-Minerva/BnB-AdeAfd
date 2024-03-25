@@ -1,7 +1,15 @@
 import { Application } from '@splinetool/runtime';
+const { onPlayerJoin, insertCoin, isHost, myPlayer } = Playroom;
 
 const canvas = document.getElementById('canvas3d');
 const spline = new Application(canvas);
+
+// Playroom - setup
+window._USETEMPSTORAGE = true;
+await insertCoin({gameId: "ozM2XgsHrfrKdzQme1DV"});
+await spline.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode');
+window.spline = spline;
+
 spline
 	.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode')
 	.then(() => {
@@ -15,9 +23,3 @@ spline
 		obj.position.x += 10;
 	});
 
-
-// Playroom - setup
-window._USETEMPSTORAGE = true;
-await insertCoin({gameId: "ozM2XgsHrfrKdzQme1DV"});
-await spline.load('https://prod.spline.design/ppsh64LilSrfESli/scene.splinecode');
-window.spline = spline;
